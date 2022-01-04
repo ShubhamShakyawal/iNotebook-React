@@ -8,13 +8,16 @@ import NoteState from './context/notes/NoteState';
 import {Alert} from './components/Alert';
 import Login from './components/Login';
 import Signup from './components/Signup';
-
+import Homepage from './components/Homepage';
+import image1  from "./1.png";
+import image2  from "./2.png";
+import image3  from "./3.png";
 
 function App() {
   
-   
-
-   const [alert, setAlert] = useState('success');
+   const pathname = window.location;
+   console.log(pathname);
+   const [alert, setAlert] = useState('null');
   
   const showAlert = (message,type) =>{
       setAlert({
@@ -27,20 +30,28 @@ function App() {
   }
   return (
     <>
-
+ 
     <NoteState>
        <Router>
           <Fragment>
-            <Navbar/> 
+            
+            <Navbar /> 
+            {/* <img src={image1} alt="image1" style={{width:'100%'}}/> */}
+             {/* {pathname.pathname==='/' ? <Homepage/>: } */}
+            <div style={{height:'50px'}}
+            ></div>
             <Alert alert={alert} />
             <div className="container">           
                <Routes>
+              
                   <Route exact path="/" element={<Home showAlert={showAlert} />}/>
                   <Route exact path="/about" element={<About/>}/>
                   <Route exact path="/login" element={<Login showAlert={showAlert} />}/>
                   <Route exact path="/signup" element={<Signup showAlert={showAlert} />}/>
                </Routes> 
                </div>
+               {/* <img src={image2} alt="image2" style={{width:'100%'}}/> */}
+               {/* <img src={image3} alt="image3" style={{width:'100%'}}/> */}
         </Fragment>        
        </Router>
        </NoteState>

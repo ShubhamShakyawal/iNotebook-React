@@ -19,7 +19,7 @@ function About() {
 
       <div  className="mb-5">
         <img style={{
-        height:'100px',
+        height:'80px',
         position:"relative",
         left:'40%'
       }} src="https://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png" alt="" />

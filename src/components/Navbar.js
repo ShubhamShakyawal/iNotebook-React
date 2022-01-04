@@ -1,5 +1,6 @@
 import React from "react";
 import { Link,useLocation,useNavigate} from "react-router-dom";
+// import Homepage from "./Homepage";
 
 function Navbar() {
   let location = useLocation();
@@ -11,8 +12,8 @@ function Navbar() {
     localStorage.removeItem('token');
     navigate('/login');
   }
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  return (<>
+    <nav className="navbar navbar-expand-lg navbar-dark  fixed-top  bg-dark ">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           iNotebook
@@ -41,15 +42,19 @@ function Navbar() {
               </Link>
             </li>
             </ul>
+
+
           { !localStorage.getItem('token') ? <form className="d-flex">
-           <Link className="btn btn-secondary mx-1" to='/login' role="button">Log in</Link>
-           <Link className="btn btn-secondary mx-1" to="/signup" role="button">Sign Up</Link>
+          {location.pathname!=='/login'? <Link className="btn btn-secondary mx-1" to='/login' role="button">Log in</Link>:""}
+          {location.pathname!=='/signup'? <Link className="btn btn-secondary mx-1" to="/signup" role="button">Sign Up</Link>:""}
           </form>
-          : <button onClick={handleLogout} className="btn btn-primary">Logout</button>  
+          : <button onClick={handleLogout} className="btn btn-secondary">Logout</button>  
         }
         </div>
       </div>
     </nav>
+    {/* {location.pathname==='/' && <Homepage/>} */}
+    </>
   );
 }
 

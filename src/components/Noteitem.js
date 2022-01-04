@@ -6,10 +6,10 @@ function Noteitem(props) {
   const {deleteNote} = context;
   const { note,updatenote } = props;
   return (
-    <div className="col-md-3">
-      <div className="card my-3">
-        <div className="card-body">
-          <div className="d-flex align-item-center">
+    <div className="col-md-3 ">
+      <div className="card my-3 ">
+        <div className="card-body border border-1 rounded">
+          <div className="d-flex align-item-center ">
             <h5 className="card-title">{note.title}</h5>
             <i className="far fa-trash-alt mx-2" onClick={()=>{ props.showAlert('Deleted Successfully','success');
                                                                   deleteNote(note._id);

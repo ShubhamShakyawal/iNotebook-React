@@ -6,6 +6,7 @@ import {useNavigate} from 'react-router-dom';
 
 
 function Notes(props) {
+ 
   const navigate = useNavigate();
   const context = useContext(noteContext);
   const {notes,getNotes,editNote} = context;
@@ -29,7 +30,7 @@ function Notes(props) {
     
     navigate('/login');
    }
-    //eslint-disable-next-line
+   // eslint-disable-next-line
    }, [])
 
    const updatenote = (currentNote)=>{
