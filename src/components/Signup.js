@@ -36,7 +36,7 @@ const Signup = (props) => {
           
     }
     return (
-        <div>
+        <div className="container my-4" style={{margin:'0px 104.5px'}}>
             <h1 style={{fontFamily:"Garamond",fontWeight:'bolder'}}>Create a new Account</h1>
             <form onSubmit={handleSubmit}>
                  <div className="my-4">

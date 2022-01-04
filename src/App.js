@@ -41,10 +41,10 @@ function App() {
             <div style={{height:'50px'}}
             ></div>
             <Alert alert={alert} />
-            <div className="container">           
+            <div className=" m-0 p-0">           
                <Routes>
-              
-                  <Route exact path="/" element={<Home showAlert={showAlert} />}/>
+                  {/* <Route exact path="/" element={<Homepage/>}/> */}
+                  <Route exact path="/" element={<Home alert={alert} showAlert={showAlert} />}/>
                   <Route exact path="/about" element={<About/>}/>
                   <Route exact path="/login" element={<Login showAlert={showAlert} />}/>
                   <Route exact path="/signup" element={<Signup showAlert={showAlert} />}/>

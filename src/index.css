@@ -23,5 +23,8 @@ h1,h2{
   font-size: 40px;
 }
 h1{
-  font-size: 60px;
+  font-size: 65px;
+}
+h4{
+  font-family: 'Roboto Slab', serif;
 }

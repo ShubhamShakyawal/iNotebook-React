@@ -26,10 +26,12 @@ function Notes(props) {
     if(localStorage.getItem('token')){
     getNotes();
    }
-   else{
+  //  else{
     
-    navigate('/login');
-   }
+  //   navigate('/login');
+  //  }
+
+
    // eslint-disable-next-line
    }, [])
 
@@ -42,8 +44,9 @@ function Notes(props) {
    const ref = useRef(null)
    const refClose = useRef(null)
   return (
-  <>
+  <> <div className="d-flex flex-row" style={{margin:'0px 104.5px'}}>
     <AddNote showAlert={props.showAlert}/>
+    <div className="container " >
     <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
 </button>
 
@@ -118,6 +121,8 @@ function Notes(props) {
       {notes.map((note) => {
         return <Noteitem showAlert={props.showAlert} key={note._id} updatenote={updatenote} note={note}/>;
       })}
+    </div>
+    </div>
     </div>
   </>
   );

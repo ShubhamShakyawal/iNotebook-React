@@ -2,15 +2,15 @@ import React from "react";
 
 function About() {
   return (
-    <div>
+    <div className="container" style={{margin:'0px 104.5px'}}>
       <h1 className="text-center mb-5">About</h1>
       <hr/>
       <strong>iNotebook - </strong> Notes secured on cloud.<br/>
       It is an project based on <strong>React</strong><br/>
       You can save your here without any doubt.
       <hr/>
-      <h3 style={{textDecoration:'underline'}} className="my-4">How to Start</h3>
-      <h6>Step 1  :             Create an account <br/>
+      <h4 className="my-4">How to Start</h4>
+      <h6>Step 1  : Create an account <br/>
          Step 2 : Log into the account
       </h6>
       <br/>
