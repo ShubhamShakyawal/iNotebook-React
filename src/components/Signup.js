@@ -1,71 +1,158 @@
-import React,{useState}from 'react'
-import {useNavigate} from 'react-router-dom';
-
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = (props) => {
+  const [credentials, setCredentials] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-     const [credentials, setCredentials] = useState({name:'',email:"",password:""})
-    
-    const navigate = useNavigate();
-   
-    const onChange = (e)=>{
-        setCredentials({...credentials,[e.target.name]: e.target.value});
-    }
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
-        const response = await fetch(`http://localhost:5000/api/auth/createuser`,{
-            method: 'POST',
-            headers:{
-              'Content-Type':'application/json'
-            },
-            body: JSON.stringify({name: credentials.name, email: credentials.email,password: credentials.password})
-          });
-          const json= await response.json();
-          console.log(json);
-          if(json.success){
-              // save the auth token and redirect
-              localStorage.setItem('token',json.authtoken); 
-              navigate('/');
-              props.showAlert("Account created successfully",'success');
-          }
-          else{
-              props.showAlert("Invalid credentials",'danger');
-          }
+  const navigate = useNavigate();
 
-          
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: credentials.name,
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
+    const json = await response.json();
+    if (json.success) {
+      // save the auth token and redirect
+      localStorage.setItem("token", json.authtoken);
+      navigate("/");
+      props.showAlert("Account created successfully", "success");
+    } else {
+      props.showAlert("Invalid credentials", "danger");
     }
-    return (
-        <div className="container my-4" style={{margin:'0px 104.5px'}}>
-            <h1 style={{fontFamily:"Garamond",fontWeight:'bolder'}}>Create a new Account</h1>
-            <form onSubmit={handleSubmit}>
-                 <div className="my-4">
-                <label htmlFor="exampleInputEmail1" className="form-label">Full Name</label>
-                <input onChange={onChange} type="text" className="form-control" name='name' id="name" aria-describedby="emailHelp"/>
+  };
+  return (
+    <section className="vh-100">
+      <div className="container h-100">
+        <div className="row d-flex justify-content-center align-items-center h-100">
+          <div className="col-lg-12 col-xl-11">
+            <div
+              className="card text-black border border-1 rounded"
+              style={{ borderRadius: "25px" }}
+            >
+              <div className="card-body p-md-5">
+                <div className="row justify-content-center">
+                  <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                      Sign up
+                    </p>
+
+                    <form className="mx-1 mx-md-4">
+                      <div className="d-flex flex-row align-items-center mb-4">
+                        <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div className="form-outline flex-fill mb-0">
+                          <input
+                            type="text"
+                            onChange={onChange}
+                            name="name"
+                            id="name"
+                            className="form-control"
+                          />
+                          <label
+                            className="form-label"
+                            htmlFor="form3Example1c"
+                          >
+                            Your Name
+                          </label>
+                        </div>
+                      </div>
+
+                      <div className="d-flex flex-row align-items-center mb-4">
+                        <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div className="form-outline flex-fill mb-0">
+                          <input
+                            type="email"
+                            onChange={onChange}
+                            name="email"
+                            id="email"
+                            className="form-control"
+                          />
+                          <label
+                            className="form-label"
+                            htmlFor="form3Example3c"
+                          >
+                            Your Email
+                          </label>
+                        </div>
+                      </div>
+
+                      <div className="d-flex flex-row align-items-center mb-4">
+                        <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+                        <div className="form-outline flex-fill mb-0">
+                          <input
+                            type="password"
+                            onChange={onChange}
+                            name="password"
+                            id="password"
+                            className="form-control"
+                          />
+                          <label
+                            className="form-label"
+                            htmlFor="form3Example4c"
+                          >
+                            Password
+                          </label>
+                        </div>
+                      </div>
+
+                      <div className="form-check d-flex justify-content-center mb-5">
+                        <input
+                          className="form-check-input me-2"
+                          type="checkbox"
+                          value=""
+                          id="form2Example3c"
+                          checked
+                        />
+                        <label
+                          className="form-check-label"
+                          htmlFor="form2Example3"
+                        >
+                          I agree all statements in{" "}
+                          <a href="/">Terms of service</a>
+                        </label>
+                      </div>
+
+                      <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <button
+                          type="button"
+                          className="btn btn-primary btn-lg"
+                          onClick={handleSubmit}
+                        >
+                          Register
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                      className="img-fluid"
+                      alt="Signup_image"
+                    />
+                  </div>
                 </div>
-                <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                <input onChange={onChange} type="email" className="form-control" name='email' id="email" aria-describedby="emailHelp"/>
-                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                
-                <div className="row g-3 align-items-center">
-                    <div className="col-auto">
-                        <label htmlFor="inputPassword6" className="col-form-label">Password</label>
-                    </div>
-                    <div className="col-auto">
-                        <input onChange={onChange} type="password" name='password' id="password" className="form-control" aria-describedby="passwordHelpInline" minLength={5} required/>
-                    </div>
-                    <div className="col-auto">
-                        <span id="passwordHelpInline" className="form-text">
-                        Must be Atleast 5 characters long.
-                        </span>
-                    </div>
-                 </div>
-                <div className='d-flex my-5'><button type="submit" className="btn btn-primary px-4">Submit</button></div>
-            </form>
+              </div>
+            </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </section>
+  );
+};
 
-export default Signup
+export default Signup;
