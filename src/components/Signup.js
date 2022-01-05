@@ -123,7 +123,7 @@ const Signup = (props) => {
                           htmlFor="form2Example3"
                         >
                           I agree all statements in{" "}
-                          <a href="/">Terms of service</a>
+                          <a href="/signup">Terms of service</a>
                         </label>
                       </div>
 

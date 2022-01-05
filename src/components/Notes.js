@@ -47,8 +47,8 @@ function Notes(props) {
   const refClose = useRef(null);
   return (
     <>
-      {" "}
-      <div className="d-flex flex-row" style={{ margin: "0px 104.5px" }}>
+      
+      <div className="d-xl-flex flex-xl-row d-md-flex flex-md-column" style={{ margin: "0px 104.5px" }}>
         <AddNote showAlert={props.showAlert} />
         <div className="container ">
           <button
