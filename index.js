@@ -13,6 +13,15 @@ app.use(express.json());
 app.use('/api/auth',require('./routes/auth'))
 app.use('/api/notes',require('./routes/notes'))
 
+if(process.env.NODE_ENV=='production'){
+  const path = require('path');
+
+  app.get('/',(req,res)=>{
+    app.use(express.static(path.resolve(__dirname,'client','build')))
+    res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+  })
+}
+
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`server running on ${port}`)
 })

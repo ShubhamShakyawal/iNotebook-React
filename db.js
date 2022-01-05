@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoURI = "mongodb+srv://shubham:$reactinotebook$@cluster0.rdtpc.mongodb.net/inotebook?retryWrites=true&w=majority";
+const mongoURI = require('./config/keys')
 
 const connectToMongo = ()=>{
     mongoose.connect(mongoURI,()=>{
