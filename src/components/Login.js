@@ -44,10 +44,10 @@ const Login = (props) => {
               alt="Phone_image"
             />
           </div>
-          <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1"><h1 className="text-center mb-5 mt-0">Log in</h1>
             <form>
               {/* <!-- Email input --> */}
-              <div className="form-outline mb-4">
+              <div className="form-outline mb-4 mt-2" style={{backgroundColor:'#E3F2FD'}} >
                 <input
                   type="email"
                   id="email"
@@ -62,7 +62,7 @@ const Login = (props) => {
               </div>
 
               {/* <!-- Password input --> */}
-              <div className="form-outline mb-4">
+              <div className="form-outline mb-4 " style={{backgroundColor:'#E3F2FD'}}>
                 <input
                   type="password"
                   id="password"
@@ -81,18 +81,18 @@ const Login = (props) => {
                 <div className="col d-flex justify-content-center">
                   {/* <!-- Checkbox --> */}
                   <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="form1Example3"
-                      checked
-                    />
-                    <label className="form-check-label" htmlFor="form1Example3">
-                      {" "}
-                      Remember me{" "}
-                    </label>
-                  </div>
+  <input
+    className="form-check-input"
+    type="checkbox"
+    value=""
+    id="flexCheckCheckedDisabled"
+    checked
+    disabled
+  />
+  <label className="form-check-label" htmlFor="flexCheckCheckedDisabled">
+    Remember Me
+      </label>
+</div>
                 </div>
 
                 <div className="col">

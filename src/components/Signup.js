@@ -48,14 +48,14 @@ const Signup = (props) => {
               <div className="card-body p-md-5">
                 <div className="row justify-content-center">
                   <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                    <h1 className="text-center  fw-bold mb-5 mx-1 mx-md-4 mt-4">
                       Sign up
-                    </p>
+                    </h1>
 
                     <form className="mx-1 mx-md-4">
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-user fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0" style={{backgroundColor:'#E3F2FD'}}> 
                           <input
                             type="text"
                             onChange={onChange}
@@ -74,7 +74,7 @@ const Signup = (props) => {
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0" style={{backgroundColor:'#E3F2FD'}}>
                           <input
                             type="email"
                             onChange={onChange}
@@ -93,7 +93,7 @@ const Signup = (props) => {
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                        <div className="form-outline flex-fill mb-0">
+                        <div className="form-outline flex-fill mb-0" style={{backgroundColor:'#E3F2FD'}}>
                           <input
                             type="password"
                             onChange={onChange}
@@ -117,6 +117,7 @@ const Signup = (props) => {
                           value=""
                           id="form2Example3c"
                           checked
+                          readOnly
                         />
                         <label
                           className="form-check-label"
